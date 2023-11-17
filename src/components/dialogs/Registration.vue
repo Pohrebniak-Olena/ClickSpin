@@ -6,7 +6,7 @@
       </button>
       <div class="dialog-content">
         <div class="col col-desktop col-img">
-          <img src="../../assets/images/girlfull.png" alt="bg">
+          
         </div>
         <div class="col col-mobile">
 
@@ -37,6 +37,24 @@
               </button>
 
             </form>
+
+            <div class="col another-way">
+              <p>Or register with:</p>
+              <div class="btns-wrap">
+                <button class="btn">
+                  <i class="icon icon-metamsk"></i>
+                </button>
+                <button class="btn">
+                  <i class="icon icon-apple"></i>
+                </button>
+                <button class="btn">
+                  <i class="icon icon-facebook"></i>
+                </button>
+                <button class="btn">
+                  <i class="icon icon-google"></i>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -78,8 +96,6 @@ export default {
       console.table(userData);
     }
   },
-  watch: {
-
-  }
+  
 }
 </script>
