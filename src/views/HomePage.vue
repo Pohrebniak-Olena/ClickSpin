@@ -22,27 +22,27 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="ui-elements">
-                <picture class="chip">
+                <picture class="move chip" data-depth="15" >
                     <img src="../assets/images/chip.svg" alt="bg">
                 </picture>
-                <picture class="sweet">
+                <picture class="move sweet" data-depth="5" >
                     <img src="../assets/images/sweet.svg" alt="bg">
                 </picture>
-                <picture class="diamond">
+                <picture class="move diamond" data-depth="8">
                     <img src="../assets/images/diamond.png" alt="bg">
                 </picture>
-                <picture class="diamond2">
+                <picture class="move diamond2" data-depth="6">
                     <img src="../assets/images/diamond2.png" alt="bg">
                 </picture>
             </div>
 
             <div class="ui-elements">
-                <picture class="glear">
+                <picture class="move glear" data-depth="20">
                     <img src="../assets/images/glear.png" alt="bg">
                 </picture>
-                <picture class="glear2">
+                <picture class="move glear2" data-depth="15">
                     <img src="../assets/images/glear.png" alt="bg">
                 </picture>
             </div>
@@ -50,28 +50,13 @@
             <div class="ui-bg">
                 <div class="img-wrap">
 
-               
+
                     <picture class="bg">
                         <img class="bg" src="../assets/images/girlbgx2.png" alt="bg">
                     </picture>
                     <picture class="elemnt">
                         <img class="elemnt" src="../assets/images/girlx2.png" alt="elemnt">
-                        <!-- <img src="../assets/images/girlfull.png" alt=""> -->
                     </picture>
-                    <!-- <picture>
-                        <source
-                            media="(min-width: 1024px)"
-                            srcset="opera-fullshot.webp"
-                            type="image/webp">
-                        <source
-                            media="(min-width: 1024px)"
-                            srcset="opera-fullshot.jpg">
-                        <source
-                            srcset="opera-closeup.webp"
-                            type="image/webp">
-                        <img
-                            src="opera-closeup.jpg" alt="The Oslo Opera House">
-                    </picture> -->
                 </div>
             </div>
         </section>
@@ -79,12 +64,35 @@
 </template>
 
 <script>
+import { gsap } from 'gsap'
 
 export default {
     methods: {
         openModal(modal) {
             this.$store.commit(modal, true)
-        } 
+        }
+    },
+    mounted() {
+        
+        document.addEventListener("mousemove", this.moveElements);
+
+    },
+    methods: {
+        moveElements(e) {
+
+            gsap.utils.toArray(".move").forEach(layer => {
+                const depth = layer.dataset.depth;
+                const moveX = ((e.pageX) - (window.innerWidth / 2));
+                const moveY = ((e.pageY) - (window.innerHeight / 2));
+                gsap.to(layer, {
+                    x: moveX / depth,
+                    y: moveY / depth
+                });
+            });
+        }
+    },
+    destroyed() {
+        // this.$el.removeEventListener('click', this.onClick);
     },
 }
 
