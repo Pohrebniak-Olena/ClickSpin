@@ -67,16 +67,14 @@
 import { gsap } from 'gsap'
 
 export default {
-    methods: {
-        openModal(modal) {
-            this.$store.commit(modal, true)
-        }
-    },
     mounted() {
         document.addEventListener("mousemove", this.moveElements);
 
     },
     methods: {
+        openModal(modal) {
+            this.$store.commit(modal, true)
+        },
         moveElements(e) {
 
             gsap.utils.toArray(".move").forEach(layer => {
