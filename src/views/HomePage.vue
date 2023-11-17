@@ -5,7 +5,7 @@
                 <div class="content">
                     <div class="col">
                         <div class="logo">
-                            <img src="../../logo.svg" alt="">
+                            <img src="/logo.svg" alt="">
                         </div>
                         <h1>
                             Deposit 500,<br>
