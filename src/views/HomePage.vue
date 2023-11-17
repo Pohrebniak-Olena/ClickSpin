@@ -73,7 +73,6 @@ export default {
         }
     },
     mounted() {
-        
         document.addEventListener("mousemove", this.moveElements);
 
     },
@@ -92,7 +91,7 @@ export default {
         }
     },
     destroyed() {
-        // this.$el.removeEventListener('click', this.onClick);
+        document.removeEventListener("mousemove", this.moveElements);
     },
 }
 
