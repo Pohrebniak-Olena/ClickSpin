@@ -69,6 +69,10 @@ h1,
     }
 }
 
+.mark {
+    color: $color-gold;
+}
+
 
 h3,
 .h3 {
@@ -126,20 +130,22 @@ h3,
     flex-direction: column;
 }
 
+.logo {
+    width: 14.7rem;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
 .main-screen {
     min-height: 100vh;
     display: flex;
     align-items: center;
     position: relative;
 
-    .logo {
-        width: 14.7rem;
 
-        img{
-            width: 100%;
-            height: auto;
-        }
-    }
 
     .logo,
     h1 {
@@ -286,7 +292,7 @@ h3,
             top: 5.9em;
             transform: rotate(-21.748deg);
             opacity: 0;
-            animation: glear linear 6s infinite alternate-reverse;
+            animation: glear linear 5s infinite alternate-reverse;
         }
 
         .glear2 {
@@ -303,7 +309,7 @@ h3,
             }
 
             to {
-                opacity: 1;
+                opacity: .98;
             }
 
         }
@@ -328,6 +334,7 @@ dialog {
 
     .btn-close {
         position: absolute;
+        z-index: 5;
         right: 1rem;
         top: 1rem;
         aspect-ratio: 1/1;
@@ -364,10 +371,9 @@ dialog {
             max-height: min(704px, 100%);
             width: 100%;
             border-radius: 1rem;
-            overflow: hidden;
             background: #131313;
             box-shadow: 0px 4px 24px 0px rgba(21, 19, 14, 0.64);
-            overflow: auto hidden;
+            overflow: hidden auto;
             position: relative;
             // -------animation
             transform: translateY(2rem);
@@ -414,7 +420,7 @@ dialog {
                 &::after {
                     position: absolute;
                     content: '';
-                    background-image: url(../images/girlfull.png);
+                    background-image: url(../images/girl-modal.png);
                     background-size: cover;
                     background-repeat: no-repeat;
                     background-position: center;
@@ -494,7 +500,7 @@ dialog {
                     height: 2rem;
                 }
 
-                &:hover{
+                &:hover {
                     background: rgb(75, 75, 75)
                 }
             }
@@ -701,46 +707,52 @@ dialog .btn-close {
 // ------- MOBILE VERSION----------
 
 @media (max-width: 640.1px) {
+    .logo {
+        width: 8.4rem;
+    }
+
     .main-screen {
         flex-direction: column;
         padding-top: 4.5rem;
 
-        .logo{
-            width: 12rem;
-        }
 
-        h1, .h1{
+        h1,
+        .h1 {
             font-size: 2.4rem;
             margin-bottom: 2rem;
         }
 
-        h3, .h3{
+        h3,
+        .h3 {
             font-size: .875rem;
         }
 
-        .btn.btn-main{
+        .btn.btn-main {
             padding: .5rem 1rem;
             font-size: 1rem;
         }
 
-        .btn{
+        .btn {
             margin-top: 3.5rem;
         }
-        .container{
+
+        .container {
             max-width: clamp(320px, 85vw, 100%);
         }
+
         .content {
             flex-direction: column;
-            .col{
+
+            .col {
                 max-width: 100%;
             }
         }
 
-        .ui-elements{
-            font-size: .5vw;
+        .ui-elements {
+            font-size: .5em;
         }
 
-        .ui-bg{
+        .ui-bg {
             left: 0;
             position: relative;
             aspect-ratio: 1 / 1;
@@ -748,13 +760,87 @@ dialog .btn-close {
             margin-top: min(100px, 6.3rem);
         }
 
-        .btn.btn-main{
-
-        }
     }
 
     dialog {
         font-size: 16px;
+        background-image: url(../images/bg-mobile.webp);
+
+        .dialog-close{
+            background: none;
+            backdrop-filter:unset;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+        }
+
+        &.registration .col {
+
+            .dialog-header {
+                padding-top: 1rem;
+                padding-bottom: .5rem;
+            }
+
+            .logo {
+                margin-bottom: 1rem;
+            }
+
+            &.col-desktop {
+                display: none;
+            }
+
+            &.col-mobile {
+                display: flex;
+                background: linear-gradient(180deg, #130625 0%, #1B0929 100%);
+
+                .content {
+                    background-image: url(../images/bg-modal-mobile.webp);
+                    background-position: bottom center;
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    padding-top: 3.37rem;
+                    padding-bottom: 10.4rem;
+                    position: relative;
+
+                    &::before {
+                        position: absolute;
+                        content: '';
+                        bottom: 0;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        max-width: 100%;
+                        width: 100%;
+                        max-width: 402px;
+                        height: 100%;
+                        z-index: 0;
+                        background-image: url(../images/girl-modal-mobile.webp);
+                        background-position: bottom center;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                    }
+
+                    .col {
+                        justify-content: center;
+                        align-items: center;
+                        gap: .5rem;
+                        position: relative;
+                        z-index: 1;
+                    }
+
+                    p {
+                        font-size: 1em;
+                        text-align: center;
+                        text-transform: uppercase;
+                    }
+                }
+            }
+        }
+
+        .btn-close {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
         .dialog-wrap {
             max-width: clamp(320px, 85vw, 100%);
         }
@@ -762,17 +848,15 @@ dialog .btn-close {
         .dialog-content {
             flex-direction: column;
 
-            .col-desktop {
-                display: none;
-            }
-
-            .col-mobile {
-                display: flex;
-            }
 
             .col {
                 width: 100%;
             }
+        }
+
+        .col-registration {
+            min-height: fit-content;
+            padding-bottom: 1.5rem;
         }
     }
 }

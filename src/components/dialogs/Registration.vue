@@ -6,10 +6,19 @@
       </button>
       <div class="dialog-content">
         <div class="col col-desktop col-img">
-          
+
         </div>
         <div class="col col-mobile">
 
+          <div class="content">
+            <div class="col">
+              <div class="logo">
+                <img src="/logo.svg" alt="">
+              </div>
+              <p>Deposit 500, get 500 USDT as a gift</p>
+              <p class="mark">100% cashback for VIPs only</p>
+            </div>
+          </div>
         </div>
         <div class="col col-content">
           <div class="col-registration">
@@ -84,7 +93,7 @@ export default {
     closeModal() {
       this.$store.commit("setRegistration", false)
     },
-    switchCheck(){
+    switchCheck() {
       this.$store.commit("setPolicy", this.policy)
     },
     sendData() {
@@ -96,6 +105,6 @@ export default {
       console.table(userData);
     }
   },
-  
+
 }
 </script>

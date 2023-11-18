@@ -52,10 +52,10 @@
 
 
                     <picture class="bg">
-                        <img class="bg" src="../assets/images/girlbgx2.png" alt="bg">
+                        <img class="bg" src="../assets/images/girlbgx2.webp" alt="bg">
                     </picture>
                     <picture class="elemnt">
-                        <img class="elemnt" src="../assets/images/girlx2.png" alt="elemnt">
+                        <img class="elemnt" src="../assets/images/girlx2.webp" alt="elemnt">
                     </picture>
                 </div>
             </div>
