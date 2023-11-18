@@ -1,11 +1,12 @@
-{
+  {
   "name": "click-spin",
   "private": true,
+  "homepage": "https://pohrebniak-olena.github.io/ClickSpin",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "predeploy":"npm run build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "build": "vite build",
     "preview": "vite preview",
@@ -20,6 +21,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
+    "gh-pages": "^6.0.0",
     "sass": "^1.69.5",
     "sass-loader": "^13.3.2",
     "vite": "^4.4.5",
