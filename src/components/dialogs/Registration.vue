@@ -26,6 +26,12 @@
               Registration
             </p>
 
+            <div v-for="(pet, index) in pets">
+
+              pet name: {{ pet.name }}
+              
+            </div>
+
             <form class="form">
 
               <fieldset>
@@ -75,11 +81,13 @@
 import { mapState } from 'vuex'
 import InputEmail from '../modules/InputEmail.vue';
 import InputPassword from '../modules/InputPassword.vue';
+import axios from 'axios';
 
 export default {
   data() {
     return {
       policy: false,
+      pets: '',
     }
   },
   components: {
@@ -88,7 +96,32 @@ export default {
   },
   computed:
     mapState(['email', 'password', 'policy']),
+  mounted() {
+    // ------------ https://www.npmjs.com/package/axios --------------
+    // axios
+    //   .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+    //   .then(response => (this.info = response));
 
+    // axios({
+    //   method: 'get',
+    //   url: 'https://petstore.swagger.io/v2/pet/findByStatus?status=available',
+    //   responseType: 'stream'
+    // })
+    //   .then(function (response) {
+    //     response.data.pipe(fs.createWriteStream('ada_lovelace.jpg'))
+    //   });
+
+    axios.get('https://petstore.swagger.io/v2/pet/findByStatus?status=available')
+    .then(response => {
+        // Handle response
+        this.pets = response.data
+        console.log(response.data);
+    })
+    .catch(err => {
+        // Handle errors
+        console.error(err);
+    });
+  },
   methods: {
     closeModal() {
       this.$store.commit("setRegistration", false)
